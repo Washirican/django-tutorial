@@ -128,3 +128,15 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# NOTE (D. Rodriguez 2020-06-24): Save e-mail address and password on
+# environment variable
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+
+# NOTE (D. Rodriguez 2020-06-25): For Gmail App passwords spaces count
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
